@@ -14,6 +14,7 @@ public:
     ArbolEmpleados(int num);
 
     datosEmpleados buscar(int clave);
+    bool cambiar(int clave);
     void insertar(int clave, string nombre, string departamento, string puesto, double salario, bool estado);
     void imprimir();
     void guardarEnArchivoBinario();
@@ -23,6 +24,7 @@ private:
     void nonfullInsert(Empleados *nodo,int clave);
     void print(Empleados nodoArbol);
     datosEmpleados search(int clave,Empleados nodoArbol);
+    bool cambiarEstado(int clave,Empleados nodo);
     void save(ofstream &archivo,Empleados *nodo);
     Empleados* read(ifstream &archivo);
 };

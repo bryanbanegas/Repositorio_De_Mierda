@@ -1,6 +1,7 @@
 CMakeFiles/GPS.dir/prueba.cpp.o: \
  /home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp \
  /usr/include/stdc-predef.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/funcionesAgregar.h \
  /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolEmpleados.h \
  /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/empleados.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
@@ -159,6 +160,37 @@ CMakeFiles/GPS.dir/prueba.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/iterator \
  /usr/include/c++/13/bits/stream_iterator.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolClientes.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/clientes.h \
+ /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
+ /usr/include/c++/13/bits/stl_vector.h \
+ /usr/include/c++/13/bits/stl_bvector.h \
+ /usr/include/c++/13/bits/vector.tcc \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolVentas.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/ventas.h \
+ /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
+ /usr/include/c++/13/bits/hashtable.h \
+ /usr/include/c++/13/bits/hashtable_policy.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/enable_special_members.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/erase_if.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolInventario.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/inventario.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolPedidos.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/pedidos.h \
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/archivos/funciones.h \
+ /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
+ /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/unique_ptr.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h \
+ /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
+ /usr/include/c++/13/cstdint \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+ /usr/include/c++/13/limits /usr/include/c++/13/ctime \
+ /usr/include/c++/13/bits/parse_numbers.h \
  /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbol.h \
- /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/Nodo.h \
- /home/bryan/Documents/VSCode/Gestion_Empresarial/archivos/funciones.h
+ /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/Nodo.h

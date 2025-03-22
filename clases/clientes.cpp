@@ -7,36 +7,40 @@ Clientes::Clientes(int num){
     hijos=new Clientes*[(2*num)];
 }
 
+void imprimirCompras(vector<string> compras){
+    if(compras.empty()){
+        return;
+    }
+    string productoActual=compras.at(0);
+    int contar=0;
+    cout<<"Compras: ";
+    for(int i=0;i<compras.size();i++){
+        if(productoActual==compras.at(i)){
+            contar++;
+        }else{
+            cout<<productoActual<<", Cantidad:"<<contar<<" ";
+            productoActual=compras.at(i);
+            contar=1;
+        }
+    }
+    cout<<productoActual<<", Cantidad:"<<contar;
+    cout<<endl;
+}
+
 void Clientes::imprimir(){
     string producto="";
     int contar;
     for(int i=0;i<numeroClaves;i++){
         cout<<"ID: "<<claves[i].id<<" Nombre: "<<claves[i].nombre<<" Correo: "<<claves[i].correo<<" Telefono: "<<claves[i].telefono<<" Saldo: "<<claves[i].saldo<<endl;
-        cout<<"Compras: ";
-        for(int i=0;i<claves[i].historialCompras.size();i++){
-            if(producto!=claves[i].historialCompras.at(i)){
-                if(i!=0){
-                    cout<<", Cantidad: "<<contar<<" ";
-                }
-                cout<<claves[i].historialCompras.at(i);
-                producto=claves[i].historialCompras.at(i);
-                contar=0;
-            }else if(i==claves[i].historialCompras.size()-1){
-                cout<<", Cantidad: "<<contar<<endl;
-            }else{
-                contar++;
-            }
-        }
+        imprimirCompras(claves[i].historialCompras);
     }
 }
 
-datosClientes Clientes::buscar(int id){
-    datosClientes datos;
+datosClientes* Clientes::buscar(int id){
     for(int i=0;i<numeroClaves;i++){
         if(claves[i].id==id){
-            datos=claves[i];
-            break;
+            return &claves[i];
         }
     }
-    return datos;
+    return nullptr;
 }

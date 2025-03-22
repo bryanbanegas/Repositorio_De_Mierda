@@ -12,13 +12,13 @@ public:
 
     ArbolVentas(int num);
 
-    datosVentas buscar(int clave);
+    datosVentas* buscar(int clave);
     void insertar(int clave, int idcliente, string fecha, int cantidad, double total);
     void imprimir();
     void guardarEnArchivoBinario();
     void leerEnArchivoBinario();
 private:
-    datosVentas search(int clave,Ventas nodo);
+    datosVentas* search(int clave,Ventas nodo);
     void split(Ventas *nodo1,int i, Ventas *nodo2);
     void nonfullInsert(Ventas *nodo,int clave);
     void print(Ventas nodoArbol);

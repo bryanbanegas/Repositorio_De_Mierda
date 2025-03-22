@@ -25,13 +25,13 @@ bool ArbolPedidos::confirmarPedido(int clave,Pedidos nodo){
     return false;
 }
 
-datosPedidos ArbolPedidos::buscar(int clave){
+datosPedidos* ArbolPedidos::buscar(int clave){
     return search(clave,*root);
 }
 
-datosPedidos ArbolPedidos::search(int clave,Pedidos nodo){
-    datosPedidos datos=nodo.buscar(clave);
-    if(!datos.cliente.empty()){
+datosPedidos* ArbolPedidos::search(int clave,Pedidos nodo){
+    datosPedidos *datos=nodo.buscar(clave);
+    if(!datos->cliente.empty()){
         return datos;
     }
 
@@ -133,7 +133,7 @@ void ArbolPedidos::imprimir(){
 
 void ArbolPedidos::save(ofstream &archivo, Pedidos *nodo){
     archivo.write(reinterpret_cast<const char*>(&nodo->numeroClaves),sizeof(nodo->numeroClaves));
-
+    
     for(int i=0;i<nodo->numeroClaves;i++){
         archivo.write(reinterpret_cast<const char*>(&nodo->claves[i].id),sizeof(nodo->claves[i].id));
 
@@ -179,6 +179,8 @@ void ArbolPedidos::guardarEnArchivoBinario(){
 
 Pedidos* ArbolPedidos::read(ifstream &archivo){
     Pedidos* nodo=new Pedidos(num);
+    string producto;
+    int prodctosSize;
 
     archivo.read(reinterpret_cast<char*>(&nodo->numeroClaves), sizeof(nodo->numeroClaves));
 
@@ -197,9 +199,7 @@ Pedidos* ArbolPedidos::read(ifstream &archivo){
 
         archivo.read(reinterpret_cast<char*>(&nodo->claves[i].estado), sizeof(nodo->claves[i].estado));
 
-        size_t prodctosSize;
         archivo.read(reinterpret_cast<char*>(&prodctosSize),sizeof(prodctosSize));
-        string producto;
         for(int i=0;i<prodctosSize;i++){
             size_t productoSize;
             archivo.read(reinterpret_cast<char*>(&productoSize),sizeof(productoSize));

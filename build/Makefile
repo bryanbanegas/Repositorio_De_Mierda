@@ -441,29 +441,29 @@ estructuras/arbolVentas.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.s
 .PHONY : estructuras/arbolVentas.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+prueba.o: prueba.cpp.o
+.PHONY : prueba.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/main.cpp.o
-.PHONY : main.cpp.o
+prueba.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/prueba.cpp.o
+.PHONY : prueba.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+prueba.i: prueba.cpp.i
+.PHONY : prueba.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/main.cpp.i
-.PHONY : main.cpp.i
+prueba.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/prueba.cpp.i
+.PHONY : prueba.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+prueba.s: prueba.cpp.s
+.PHONY : prueba.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/main.cpp.s
-.PHONY : main.cpp.s
+prueba.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GPS.dir/build.make CMakeFiles/GPS.dir/prueba.cpp.s
+.PHONY : prueba.cpp.s
 
 # Help Target
 help:
@@ -513,9 +513,9 @@ help:
 	@echo "... estructuras/arbolVentas.o"
 	@echo "... estructuras/arbolVentas.i"
 	@echo "... estructuras/arbolVentas.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... prueba.o"
+	@echo "... prueba.i"
+	@echo "... prueba.s"
 .PHONY : help
 
 

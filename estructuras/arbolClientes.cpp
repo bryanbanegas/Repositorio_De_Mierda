@@ -5,13 +5,13 @@ ArbolClientes::ArbolClientes(int num){
     root=new Clientes(num);
 }
 
-datosClientes ArbolClientes::buscar(int clave){
+datosClientes* ArbolClientes::buscar(int clave){
     return search(clave,*root);
 }
 
-datosClientes ArbolClientes::search(int clave,Clientes nodo){
-    datosClientes datos=nodo.buscar(clave);
-    if(!datos.nombre.empty()){
+datosClientes* ArbolClientes::search(int clave,Clientes nodo){
+    datosClientes* datos=nodo.buscar(clave);
+    if(!datos->nombre.empty()){
         return datos;
     }
 
@@ -165,6 +165,8 @@ void ArbolClientes::guardarEnArchivoBinario(){
 
 Clientes* ArbolClientes::read(ifstream &archivo){
     Clientes* nodo=new Clientes(num);
+    string compra;
+    int historialSize;
 
     archivo.read(reinterpret_cast<char*>(&nodo->numeroClaves),sizeof(nodo->numeroClaves));
 
@@ -188,9 +190,7 @@ Clientes* ArbolClientes::read(ifstream &archivo){
 
         archivo.read(reinterpret_cast<char*>(&dato.saldo),sizeof(dato.saldo));
 
-        size_t historialSize;
         archivo.read(reinterpret_cast<char*>(&historialSize),sizeof(historialSize));
-        string compra;
         for(int i=0;i<historialSize;i++){
             size_t compraSize;
             archivo.read(reinterpret_cast<char*>(&compraSize),sizeof(compraSize));

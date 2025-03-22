@@ -1,32 +1,24 @@
-#include "/home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolEmpleados.h"
+#include "funcionesAgregar.h"
 #include "/home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbol.h"
-#include "/home/bryan/Documents/VSCode/Gestion_Empresarial/archivos/funciones.h"
+
+#include <iostream>
+
+using namespace std;
 
 int main(){
-    ArbolEmpleados *arbolEmpleados=new ArbolEmpleados(3);
-    Arbol *arbol=new Arbol(3);
-    string nombre="Bryan",departamento="NO se",puesto="Puesto";
-    double salario=0.6;
-    
-    /*arbolEmpleados->insertar(0,nombre,departamento,puesto,salario,true);
-    arbolEmpleados->insertar(1,nombre,departamento,puesto,salario,true);
-    arbolEmpleados->insertar(2,"jwgewjhbd",departamento,puesto,salario,true);
-    arbolEmpleados->insertar(3,"que",departamento,puesto,salario,true);
-    arbolEmpleados->insertar(4,"no",departamento,puesto,salario,true);
-    arbolEmpleados->insertar(5,nombre,departamento,puesto,salario,true);
-    arbolEmpleados->insertar(6,nombre,departamento,puesto,salario,true);*/
-    arbolEmpleados->leerEnArchivoBinario();
-    arbolEmpleados->imprimir();
+    arbolInvetario->insertar(0,"nombre","cate",5,23,true);
+    arbolInvetario->insertar(1,"nombre","cate",5,23,false);
+    arbolInvetario->insertar(2,"nombre","cate",5,23,true);
+    arbolInvetario->insertar(3,"nombre","cate",5,23,true);
+    arbolInvetario->insertar(4,"nombre","cate",5,23,true);
+    arbolInvetario->insertar(5,"nombre","cate",5,23,true);
+    arbolInvetario->insertar(6,"nombre","cate",5,23,true);
 
-    /*arbol->insertar(0);
-    arbol->insertar(1);
-    arbol->insertar(2);
-    arbol->insertar(3);
-    arbol->insertar(4);
-    arbol->insertar(5);
-    arbol->insertar(6);
-    arbol->insertar(7);
-    arbol->imprimir();*/
+    arbolInvetario->imprimir();
 }
+
+
+
+
 
 

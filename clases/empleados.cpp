@@ -8,9 +8,14 @@ Empleados::Empleados(int num){
 }
 
 void Empleados::imprimir(){
-    cout<<"-----Nodo------"<<endl;
     for(int i=0;i<numeroClaves;i++){
-        cout<<"ID: "<<claves[i].id<<" Nombre: "<<claves[i].nombre<<" Departamento: "<<claves[i].departamento<<" Puesto: "<<claves[i].puesto<<" Salario: "<<claves[i].salario<<endl;
+        if(claves[i].estado){
+            cout<<"ID: "<<claves[i].id<<", Nombre: "<<claves[i].nombre<<", Departamento: "<<claves[i].departamento<<", Puesto: "<<claves[i].puesto<<", Salario: "<<
+            claves[i].salario<<", Esta Disponible."<<endl;
+        }else{
+            cout<<"ID: "<<claves[i].id<<", Nombre: "<<claves[i].nombre<<", Departamento: "<<claves[i].departamento<<", Puesto: "<<claves[i].puesto<<", Salario: "<<
+            claves[i].salario<<", No esta Disponible."<<endl;
+        }
     }
 }
 
@@ -28,8 +33,11 @@ datosEmpleados Empleados::buscar(int id){
 bool Empleados::cambiar(int id){
     for(int i=0;i<numeroClaves;i++){
         if(claves[i].id==id){
-            claves[i].estado=false;
-            numeroClaves--;
+            if(claves[id].estado){
+                claves[id].estado=false;
+            }else{
+                claves[id].estado=true;
+            }
             return true;
         }
     }

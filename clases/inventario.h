@@ -17,14 +17,13 @@ struct datosInventario{
 class Inventario{
 public:
     datosInventario* claves;
-    int numeroClaves;
+    int numeroClaves,numero;
     Inventario **hijos;
     bool hoja;
 
     Inventario(int num);
     void imprimir();
-    datosInventario buscar(int id);
-    bool eliminar(int id);
+    datosInventario* buscar(int id);
 };
 
 #endif

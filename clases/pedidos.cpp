@@ -7,47 +7,49 @@ Pedidos::Pedidos(int num){
     hijos=new Pedidos*[(2*num)];
 }
 
-void Pedidos::imprimir(){
-    string producto;
+void imprimirPedidos(vector<string> pedidos){
+    if(pedidos.empty()){
+        return;
+    }
+    string productoActual=pedidos.at(0);
     int contar=0;
-    cout<<"-----Nodo------"<<endl;
+    cout<<"Pedidos: ";
+    for(int i=0;i<pedidos.size();i++){
+        if(productoActual==pedidos.at(i)){
+            contar++;
+        }else{
+            cout<<productoActual<<", Cantidad:"<<contar<<" ";
+            productoActual=pedidos.at(i);
+            contar=1;
+        }
+    }
+    cout<<productoActual<<", Cantidad:"<<contar;
+    cout<<endl;
+}
+
+void Pedidos::imprimir(){
+    string productoActual;
+    int contar=0;
     for(int i=0;i<numeroClaves;i++){
         if(claves[i].estado){
-            cout<<"ID: "<<claves[i].id<<" Cliente: "<<claves[i].cliente<<" Fecha: "<<claves[i].fecha<<" Cliente: "<<claves[i].cliente<<" Se a entregado el pedido."<<endl;
+            cout<<"ID: "<<claves[i].id<<", Cliente: "<<claves[i].cliente<<", Fecha: "<<claves[i].fecha<<", Cliente: "<<claves[i].cliente<<", Se a entregado el pedido."<<endl;
         }else{
-            cout<<"ID: "<<claves[i].id<<" Cliente: "<<claves[i].cliente<<" Fecha: "<<claves[i].fecha<<" Cliente: "<<claves[i].cliente<<" No se a entregado el pedido."<<endl;
+            cout<<"ID: "<<claves[i].id<<", Cliente: "<<claves[i].cliente<<", Fecha: "<<claves[i].fecha<<", Cliente: "<<claves[i].cliente<<", No se a entregado el pedido."<<endl;
         }
-        cout<<"Pedidos: ";
-        for(int i=0;i<claves[i].productosSolicitados.size();i++){
-            if(producto!=claves[i].productosSolicitados.at(i)){
-                if(i!=0){
-                    cout<<", Cantidad: "<<contar<<" ";
-                }
-                cout<<claves[i].productosSolicitados.at(i);
-                producto=claves[i].productosSolicitados.at(i);
-                contar=0;
-            }else if(i==claves[i].productosSolicitados.size()-1){
-                cout<<", Cantidad: "<<contar<<endl;
-            }else{
-                contar++;
-            }
-        }
+        imprimirPedidos(claves[i].productosSolicitados);
     }
 }
 
-datosPedidos Pedidos::buscar(int id){
-    datosPedidos datos;
+datosPedidos* Pedidos::buscar(int id){
     for(int i=0;i<numeroClaves;i++){
         if(claves[i].id==id){
-            datos=claves[i];
-            break;
+            return &claves[i];
         }
     }
-    return datos;
+    return nullptr;
 }
 
 bool Pedidos::confirmar(int id){
-    datosPedidos datos;
     for(int i=0;i<numeroClaves;i++){
         if(claves[i].id==id){
             claves[id].estado=true;
@@ -60,4 +62,5 @@ bool Pedidos::confirmar(int id){
 bool Pedidos::eliminar(int id){
     return true;
 }
+
 

@@ -8,7 +8,7 @@ file(GLOB_RECURSE SRC_FILES
     "estructuras/*.cpp" 
     "clases/*.cpp"
     "archivos/*.cpp"
-    "main.cpp"
+    "prueba.cpp"
 )
 
 add_executable(GPS ${SRC_FILES})

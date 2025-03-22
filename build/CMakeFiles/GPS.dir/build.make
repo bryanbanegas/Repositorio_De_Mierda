@@ -251,19 +251,19 @@ CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolVentas.cpp -o CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.s
 
-CMakeFiles/GPS.dir/main.cpp.o: CMakeFiles/GPS.dir/flags.make
-CMakeFiles/GPS.dir/main.cpp.o: /home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp
-CMakeFiles/GPS.dir/main.cpp.o: CMakeFiles/GPS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bryan/Documents/VSCode/Gestion_Empresarial/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/GPS.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GPS.dir/main.cpp.o -MF CMakeFiles/GPS.dir/main.cpp.o.d -o CMakeFiles/GPS.dir/main.cpp.o -c /home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp
+CMakeFiles/GPS.dir/prueba.cpp.o: CMakeFiles/GPS.dir/flags.make
+CMakeFiles/GPS.dir/prueba.cpp.o: /home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp
+CMakeFiles/GPS.dir/prueba.cpp.o: CMakeFiles/GPS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bryan/Documents/VSCode/Gestion_Empresarial/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/GPS.dir/prueba.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GPS.dir/prueba.cpp.o -MF CMakeFiles/GPS.dir/prueba.cpp.o.d -o CMakeFiles/GPS.dir/prueba.cpp.o -c /home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp
 
-CMakeFiles/GPS.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GPS.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp > CMakeFiles/GPS.dir/main.cpp.i
+CMakeFiles/GPS.dir/prueba.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GPS.dir/prueba.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp > CMakeFiles/GPS.dir/prueba.cpp.i
 
-CMakeFiles/GPS.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GPS.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp -o CMakeFiles/GPS.dir/main.cpp.s
+CMakeFiles/GPS.dir/prueba.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GPS.dir/prueba.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp -o CMakeFiles/GPS.dir/prueba.cpp.s
 
 # Object files for target GPS
 GPS_OBJECTS = \
@@ -280,7 +280,7 @@ GPS_OBJECTS = \
 "CMakeFiles/GPS.dir/estructuras/arbolInventario.cpp.o" \
 "CMakeFiles/GPS.dir/estructuras/arbolPedidos.cpp.o" \
 "CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o" \
-"CMakeFiles/GPS.dir/main.cpp.o"
+"CMakeFiles/GPS.dir/prueba.cpp.o"
 
 # External object files for target GPS
 GPS_EXTERNAL_OBJECTS =
@@ -298,7 +298,7 @@ GPS: CMakeFiles/GPS.dir/estructuras/arbolEmpleados.cpp.o
 GPS: CMakeFiles/GPS.dir/estructuras/arbolInventario.cpp.o
 GPS: CMakeFiles/GPS.dir/estructuras/arbolPedidos.cpp.o
 GPS: CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o
-GPS: CMakeFiles/GPS.dir/main.cpp.o
+GPS: CMakeFiles/GPS.dir/prueba.cpp.o
 GPS: CMakeFiles/GPS.dir/build.make
 GPS: CMakeFiles/GPS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bryan/Documents/VSCode/Gestion_Empresarial/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable GPS"

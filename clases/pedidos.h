@@ -24,7 +24,7 @@ public:
 
     Pedidos(int num);
     void imprimir();
-    datosPedidos buscar(int id);
+    datosPedidos* buscar(int id);
     bool confirmar(int id);
     bool eliminar(int id);
 };

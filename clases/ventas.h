@@ -25,7 +25,7 @@ public:
 
     Ventas(int num);
     void imprimir();
-    datosVentas buscar(int id);
+    datosVentas* buscar(int id);
     bool eliminar(int id);
 };
 

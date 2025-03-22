@@ -5,13 +5,13 @@ ArbolInventario::ArbolInventario(int num){
     root=new Inventario(num);
 }
 
-datosInventario ArbolInventario::buscar(int clave){
+datosInventario* ArbolInventario::buscar(int clave){
     return search(clave,*root);
 }
 
-datosInventario ArbolInventario::search(int clave,Inventario nodo){
-    datosInventario datos=nodo.buscar(clave);
-    if(!datos.nombre.empty()){
+datosInventario* ArbolInventario::search(int clave,Inventario nodo){
+    datosInventario *datos=nodo.buscar(clave);
+    if(!datos->nombre.empty()){
         return datos;
     }
     if(!nodo.hoja){

@@ -24,6 +24,26 @@ datosEmpleados ArbolEmpleados::search(int clave,Empleados nodo){
     return datos;
 }
 
+bool ArbolEmpleados::cambiar(int clave){
+    return cambiarEstado(clave,*root);
+}
+
+bool ArbolEmpleados::cambiarEstado(int clave,Empleados nodo){
+    if(nodo.cambiar(clave)){
+        return true;
+    }
+
+    if(!nodo.hoja){
+        for(int i=0;i<=nodo.numeroClaves;i++){
+            if(nodo.hijos[i]!=nullptr){
+                cambiarEstado(clave,*nodo.hijos[i]);
+            }
+        }
+    }
+
+    return false;
+}
+
 void ArbolEmpleados::insertar(int clave, string nombre, string departamento, string puesto, double salario, bool estado){
     dato.id=clave;
     dato.nombre=nombre;

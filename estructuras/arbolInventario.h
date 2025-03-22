@@ -12,13 +12,13 @@ public:
 
     ArbolInventario(int num);
 
-    datosInventario buscar(int clave);
+    datosInventario* buscar(int clave);
     void insertar(int clave, string nombre, string categoria,int cantidad, double precio, bool estado);
     void imprimir();
     void guardarEnArchivoBinario();
     void leerEnArchivoBinario();
 private:
-    datosInventario search(int clave,Inventario nodoArbol);
+    datosInventario* search(int clave,Inventario nodoArbol);
     void split(Inventario *nodo1,int i, Inventario *nodo2);
     void nonfullInsert(Inventario *nodo,int clave);
     void print(Inventario nodoArbol);

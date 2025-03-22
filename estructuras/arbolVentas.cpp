@@ -5,12 +5,15 @@ ArbolVentas::ArbolVentas(int num){
     root=new Ventas(num);
 }
 
-datosVentas ArbolVentas::buscar(int clave){
+datosVentas* ArbolVentas::buscar(int clave){
     return search(clave,*root);
 }
 
-datosVentas ArbolVentas::search(int clave,Ventas nodo){
-    return nodo.buscar(clave);
+datosVentas* ArbolVentas::search(int clave,Ventas nodo){
+    datosVentas* datos=nodo.buscar(clave);
+    if(!datos->fecha.empty()){
+        return datos;
+    }
 
     if(!nodo.hoja){
         for(int i=0;i<=nodo.numeroClaves;i++){
@@ -19,6 +22,7 @@ datosVentas ArbolVentas::search(int clave,Ventas nodo){
             }
         }
     }
+    return datos;
 }
 
 void ArbolVentas::insertar(int clave, int idcliente, string fecha, int cantidad, double total){
@@ -154,7 +158,9 @@ void ArbolVentas::guardarEnArchivoBinario(){
 
 Ventas* ArbolVentas::read(ifstream &archivo){
     Ventas* nodo=new Ventas(num);
-
+    string producto;
+    int prodctosSize;
+    
     archivo.read(reinterpret_cast<char*>(&nodo->numeroClaves), sizeof(nodo->numeroClaves));
 
     for(int i=0;i<nodo->numeroClaves;i++) {
@@ -169,9 +175,7 @@ Ventas* ArbolVentas::read(ifstream &archivo){
         archivo.read(reinterpret_cast<char*>(&nodo->claves[i].cantidad),sizeof(nodo->claves[i].cantidad));
         archivo.read(reinterpret_cast<char*>(&nodo->claves[i].total),sizeof(nodo->claves[i].total));
 
-        size_t prodctosSize;
         archivo.read(reinterpret_cast<char*>(&prodctosSize),sizeof(prodctosSize));
-        string producto;
         for(int i=0;i<prodctosSize;i++){
             size_t productoSize;
             archivo.read(reinterpret_cast<char*>(&productoSize),sizeof(productoSize));

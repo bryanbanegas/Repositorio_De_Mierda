@@ -7,40 +7,43 @@ Ventas::Ventas(int num){
     hijos=new Ventas*[(2*num)];
 }
 
+void imprimirVentas(vector<string> ventas){
+    if(ventas.empty()){
+        return;
+    }
+    string productoActual=ventas.at(0);
+    int contar=0;
+    cout<<"Productos Vendidos: ";
+    for(int i=0;i<ventas.size();i++){
+        if(productoActual==ventas.at(i)){
+            contar++;
+        }else{
+            cout<<productoActual<<", Cantidad:"<<contar<<" ";
+            productoActual=ventas.at(i);
+            contar=1;
+        }
+    }
+    cout<<productoActual<<", Cantidad:"<<contar;
+    cout<<endl;
+}
+
 void Ventas::imprimir(){
     string producto="";
     int contar;
-    cout<<"-----Nodo------"<<endl;
     for(int i=0;i<numeroClaves;i++){
         cout<<"ID de Venta: "<<claves[i].idVenta<<" ID de CLiente: "<<claves[i].idCliente<<" Fecha: "<<claves[i].fecha<<" Cantidad: "<<claves[i].cantidad
         <<" Total: "<<claves[i].total<<endl;
-        cout<<"Productos Vendidos: ";
-        for(int i=0;i<claves[i].productosVendidos.size();i++){
-            if(producto!=claves[i].productosVendidos.at(i)){
-                if(i!=0){
-                    cout<<", Cantidad: "<<contar<<" ";
-                }
-                cout<<claves[i].productosVendidos.at(i);
-                producto=claves[i].productosVendidos.at(i);
-                contar=0;
-            }else if(i==claves[i].productosVendidos.size()-1){
-                cout<<", Cantidad: "<<contar<<endl;
-            }else{
-                contar++;
-            }
-        }
+        imprimirVentas(claves[i].productosVendidos);
     }
 }
 
-datosVentas Ventas::buscar(int id){
-    datosVentas datos;
+datosVentas* Ventas::buscar(int id){
     for(int i=0;i<numeroClaves;i++){
-        if(claves[i].idVenta==id){
-            datos=claves[i];
-            break;
+        if(claves[i].idCliente==id){
+            return &claves[i];
         }
     }
-    return datos;
+    return nullptr;
 }
 
 bool Ventas::eliminar(int id){
