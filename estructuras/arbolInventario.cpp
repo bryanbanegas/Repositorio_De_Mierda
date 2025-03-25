@@ -11,7 +11,7 @@ datosInventario* ArbolInventario::buscar(int clave){
 
 datosInventario* ArbolInventario::search(int clave,Inventario nodo){
     datosInventario *datos=nodo.buscar(clave);
-    if(!datos->nombre.empty()){
+    if(datos!=nullptr){
         return datos;
     }
     if(!nodo.hoja){
@@ -21,7 +21,7 @@ datosInventario* ArbolInventario::search(int clave,Inventario nodo){
             }
         }
     }
-    return datos;
+    return nullptr;
 }
 
 void ArbolInventario::insertar(int clave, string nombre, string categoria,int cantidad, double precio, bool estado){

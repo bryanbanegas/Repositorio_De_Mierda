@@ -11,7 +11,7 @@ datosVentas* ArbolVentas::buscar(int clave){
 
 datosVentas* ArbolVentas::search(int clave,Ventas nodo){
     datosVentas* datos=nodo.buscar(clave);
-    if(!datos->fecha.empty()){
+    if(datos!=nullptr){
         return datos;
     }
 
@@ -22,7 +22,7 @@ datosVentas* ArbolVentas::search(int clave,Ventas nodo){
             }
         }
     }
-    return datos;
+    return nullptr;
 }
 
 void ArbolVentas::insertar(int clave, int idcliente, string fecha, int cantidad, double total){

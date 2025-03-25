@@ -25,8 +25,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GPS.dir/estructuras/arbolPedidos.cpp.o.d"
   "CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o"
   "CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o.d"
-  "CMakeFiles/GPS.dir/prueba.cpp.o"
-  "CMakeFiles/GPS.dir/prueba.cpp.o.d"
+  "CMakeFiles/GPS.dir/main.cpp.o"
+  "CMakeFiles/GPS.dir/main.cpp.o.d"
   "GPS"
   "GPS.pdb"
 )

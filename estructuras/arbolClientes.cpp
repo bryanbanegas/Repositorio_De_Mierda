@@ -11,7 +11,7 @@ datosClientes* ArbolClientes::buscar(int clave){
 
 datosClientes* ArbolClientes::search(int clave,Clientes nodo){
     datosClientes* datos=nodo.buscar(clave);
-    if(!datos->nombre.empty()){
+    if(datos!=nullptr){
         return datos;
     }
 
@@ -22,7 +22,7 @@ datosClientes* ArbolClientes::search(int clave,Clientes nodo){
             }
         }
     }
-    return datos;
+    return nullptr;
 }
 
 void ArbolClientes::insertar(int clave, string nombre, string correo, string telefono, double saldo){
@@ -188,7 +188,7 @@ Clientes* ArbolClientes::read(ifstream &archivo){
         nodo->claves[i].correo.resize(correoSize);
         archivo.read(&nodo->claves[i].correo[0],correoSize);
 
-        archivo.read(reinterpret_cast<char*>(&dato.saldo),sizeof(dato.saldo));
+        archivo.read(reinterpret_cast<char*>(&nodo->claves[i].saldo),sizeof(nodo->claves[i].saldo));
 
         archivo.read(reinterpret_cast<char*>(&historialSize),sizeof(historialSize));
         for(int i=0;i<historialSize;i++){

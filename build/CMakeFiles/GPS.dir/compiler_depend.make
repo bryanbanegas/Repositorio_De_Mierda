@@ -2547,15 +2547,13 @@ CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o: /home/bryan/Documents/VSCode/G
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
-CMakeFiles/GPS.dir/prueba.cpp.o: /home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp \
+CMakeFiles/GPS.dir/main.cpp.o: /home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/archivos/funciones.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/clientes.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/empleados.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/inventario.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/pedidos.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/clases/ventas.h \
-  /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/Nodo.h \
-  /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbol.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolClientes.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolEmpleados.h \
   /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolInventario.h \
@@ -2801,7 +2799,7 @@ CMakeFiles/GPS.dir/prueba.cpp.o: /home/bryan/Documents/VSCode/Gestion_Empresaria
 
 /usr/include/c++/13/bits/chrono.h:
 
-/home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp:
+/home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp:
 
 /home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolPedidos.h:
 

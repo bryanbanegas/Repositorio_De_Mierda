@@ -6,15 +6,10 @@
 using namespace std;
 
 int main(){
-    arbolInvetario->insertar(0,"nombre","cate",5,23,true);
-    arbolInvetario->insertar(1,"nombre","cate",5,23,false);
-    arbolInvetario->insertar(2,"nombre","cate",5,23,true);
-    arbolInvetario->insertar(3,"nombre","cate",5,23,true);
-    arbolInvetario->insertar(4,"nombre","cate",5,23,true);
-    arbolInvetario->insertar(5,"nombre","cate",5,23,true);
-    arbolInvetario->insertar(6,"nombre","cate",5,23,true);
-
-    arbolInvetario->imprimir();
+    arbolInvetario->insertar(1,"Manzana","Comestible",9,5,true);
+    arbolInvetario->insertar(2,"IPhone","No Comestible",7,20,true);
+    arbolInvetario->insertar(3,"Sandia","Comestible",12,3,true);
+    arbolInvetario->guardarEnArchivoBinario();
 }
 
 

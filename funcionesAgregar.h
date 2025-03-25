@@ -57,15 +57,15 @@ void agregarEmpleados(){
         if(i==0){
             cout<<"Cargando."<<flush;
         }else if(i==1){
-            cout<<"Cargando.."<<flush;
+            cout<<"."<<flush;
         }else if(i==2){
-            cout<<"Cargando..."<<flush;
+            cout<<"."<<flush;
         }else{
-            cout<<"Cargando...."<<flush;
+            cout<<"."<<flush;
         }
         this_thread::sleep_for(chrono::seconds(1));
-        cout<<endl;
     }
+    cout<<endl;
     arbolEmpleados->insertar(idEmpleados,nombre,departamento,puesto,stod(salario),true);
     cout << "---------------------------------" << endl;
     cout << "¡Empleado agregado con éxito!" << endl;
@@ -80,8 +80,10 @@ void agregarCliente(){
     getline(cin,nombre);
     cout << "Ingresar correo del cliente: ";
     getline(cin,correo);
-    cout << "Ingresar telefono del cliente: ";
-    getline(cin,telefono);
+    do{
+        cout << "Ingresar telefono del cliente: ";
+        getline(cin,telefono);
+    }while(!esint(telefono)||telefono.length()!=8);
     cout << "Ingresar saldo del cliente: ";
     do{
         cout << "Ingresar saldo del cliente: ";
@@ -91,15 +93,15 @@ void agregarCliente(){
         if(i==0){
             cout<<"Cargando."<<flush;
         }else if(i==1){
-            cout<<"Cargando.."<<flush;
+            cout<<"."<<flush;
         }else if(i==2){
-            cout<<"Cargando..."<<flush;
+            cout<<"."<<flush;
         }else{
-            cout<<"Cargando...."<<flush;
+            cout<<"."<<flush;
         }
         this_thread::sleep_for(chrono::seconds(1));
-        cout<<endl;
     }
+    cout<<endl;
     arbolClientes->insertar(idClientes,nombre,correo,telefono,stod(saldo));
     cout << "---------------------------------" << endl;
     cout << "¡Cliente agregado con éxito!" << endl;
@@ -138,15 +140,15 @@ void agregarProducto(){
         if(i==0){
             cout<<"Cargando."<<flush;
         }else if(i==1){
-            cout<<"Cargando.."<<flush;
+            cout<<"."<<flush;
         }else if(i==2){
-            cout<<"Cargando..."<<flush;
+            cout<<"."<<flush;
         }else{
-            cout<<"Cargando...."<<flush;
+            cout<<"."<<flush;
         }
         this_thread::sleep_for(chrono::seconds(1));
-        cout<<endl;
     }
+    cout<<endl;
     arbolInvetario->insertar(idInventario,nombre,categoria,stoi(cantidad),stod(precio),true);
     cout << "---------------------------------" << endl;
     cout << "¡Producto agregado con éxito!" << endl;
@@ -155,20 +157,17 @@ void agregarProducto(){
     cout<<endl;
 }
 
-void agregarPedido(string cliente,int idCliente){
-    idPedidos=leerArchivoID(2);
-    idPedidos++;
-    guardarIDs(idEmpleados,idClientes,idPedidos,idVentas,idInventario);
+void agregarPedido(string cliente,int idCliente,double saldo){
     string cantidad,fecha,id="";
     int cantidadProductos=0;
     double total=0;
+    bool pedido=false;
     cout << "---------------------------------" << endl;
     fecha="3/25/2025";
-    arbolPedidos->insertar(idPedidos,cliente,fecha,false);
     datosPedidos datos1;
     datosInventario *datos2;
-    arbolInvetario->imprimir();
     while(id!="0"){
+        arbolInvetario->imprimir();
         cout << "Para salir ingrese 0: "<<endl;
         do{
             cout << "Ingresar ID de producto: ";
@@ -180,49 +179,70 @@ void agregarPedido(string cliente,int idCliente){
                 getline(cin,cantidad);
             }while(!esint(cantidad));
             datos2=arbolInvetario->buscar(stoi(id));
-            if(datos2->nombre.empty()){
+            if(datos2==nullptr){
                 cout<<"Este producto no existe."<<endl;
             }else{
                 if(stoi(cantidad)<=datos2->cantidad&&stoi(cantidad)>1){
-                    cantidadProductos+=stoi(cantidad);
-                    for(int i=0;i<stoi(cantidad);i++){
-                        datos1.productosSolicitados.push_back(datos2->nombre);
-                        total+=stoi(cantidad)*datos2->precio;
-                    }
-                    datos2->cantidad=datos2->cantidad-stoi(cantidad);
-                    if(datos2->cantidad==0){
-                        datos2->estado=false;
+                    total+=stoi(cantidad)*datos2->precio;
+                    cout<<total<<endl;
+                    cout<<saldo<<endl;
+                    if(saldo>=total){
+                        pedido=true;
+                        cantidadProductos+=stoi(cantidad);
+                        saldo-=total;
+                        for(int i=0;i<stoi(cantidad);i++){
+                            datos1.productosSolicitados.push_back(datos2->nombre);
+                        }
+                        datos2->cantidad=datos2->cantidad-stoi(cantidad);
+                        if(datos2->cantidad==0){
+                            datos2->estado=false;
+                        }
+                    }else{
+                        total-=stoi(cantidad)*datos2->precio;
+                        cout<<"No tiene suficiente saldo para esta compra."<<endl;
                     }
                 }else{
                     cout<<"La cantidad ingresada excede la cantidad del producto o es menor que 1."<<endl;
                 }
             }
         }
-    }
-    arbolPedidos->buscar(idPedidos)->productosSolicitados=datos1.productosSolicitados;
-    for(int i=0;i<4;i++){
-        if(i==0){
-            cout<<"Cargando."<<flush;
-        }else if(i==1){
-            cout<<"Cargando.."<<flush;
-        }else if(i==2){
-            cout<<"Cargando..."<<flush;
-        }else{
-            cout<<"Cargando...."<<flush;
-        }
-        this_thread::sleep_for(chrono::seconds(1));
         cout<<endl;
     }
-    cout << "---------------------------------" << endl;
-    cout << "¡Pedido hecho con éxito!" << endl;
-    cout << "Total de pedido: " << total << endl;
-    cout << "ID de pedido: " << idPedidos << endl;
-    cout << "---------------------------------" << endl;
-    idVentas=leerArchivoID(3);
-    idVentas++;
-    guardarIDs(idEmpleados,idClientes,idPedidos,idVentas,idInventario);
-    arbolVentas->insertar(idVentas,idCliente,fecha,cantidadProductos,total);
-    arbolVentas->buscar(idVentas)->productosVendidos=datos1.productosSolicitados;
+    if(pedido){
+        idPedidos=leerArchivoID(2);
+        idPedidos++;
+        guardarIDs(idEmpleados,idClientes,idPedidos,idVentas,idInventario);
+        arbolPedidos->insertar(idPedidos,cliente,fecha,false);
+        arbolPedidos->buscar(idPedidos)->productosSolicitados=datos1.productosSolicitados;
+        for(int i=0;i<4;i++){
+            if(i==0){
+                cout<<"Cargando."<<flush;
+            }else if(i==1){
+                cout<<"."<<flush;
+            }else if(i==2){
+                cout<<"."<<flush;
+            }else{
+                cout<<"."<<flush;
+            }
+            this_thread::sleep_for(chrono::seconds(1));
+        }
+        cout<<endl;
+        cout << "---------------------------------" << endl;
+        cout << "¡Pedido hecho con éxito!" << endl;
+        cout << "Total de pedido: " << total << endl;
+        cout << "ID de pedido: " << idPedidos << endl;
+        cout << "---------------------------------" << endl;
+        idVentas=leerArchivoID(3);
+        idVentas++;
+        guardarIDs(idEmpleados,idClientes,idPedidos,idVentas,idInventario);
+        arbolVentas->insertar(idVentas,idCliente,fecha,cantidadProductos,total);
+        arbolVentas->buscar(idVentas)->productosVendidos=datos1.productosSolicitados;
+        arbolClientes->buscar(idCliente)->saldo=saldo;
+    }else{
+        cout << "---------------------------------" << endl;
+        cout << "No realizo ningun pedido." << endl;
+        cout << "---------------------------------" << endl;
+    }
 }
 
 #endif

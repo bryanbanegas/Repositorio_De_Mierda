@@ -73,7 +73,13 @@ void inventario(){
 }
 
 int main(){
-    string opcion="g", opcionEmpleados="g", opcionClientes="g", id;
+    string opcion="g", opcionEmpleados="g", opcionClientes="g", id, saldo;
+
+    arbolEmpleados->leerEnArchivoBinario();
+    arbolClientes->leerEnArchivoBinario();
+    arbolInvetario->leerEnArchivoBinario();
+    arbolPedidos->leerEnArchivoBinario();
+    arbolVentas->leerEnArchivoBinario();
 
     while(opcion != "4"){
         cout << "---------------------------------" << endl;
@@ -89,7 +95,8 @@ int main(){
             cout << "---- MENÚ EMPLEADOS ----" << endl;
             cout << "1. Agregar empleado" << endl
             << "2. Ingresar ID de empleado" << endl
-            << "3. Cambiar estado de empleado" << endl;
+            << "3. Cambiar estado de empleado" << endl
+            << "4. Ver empleados" << endl;
             cout << "Ingresar una opcion: ";
             getline(cin,opcionEmpleados);
             cout << "---------------------------------" << endl;
@@ -105,8 +112,8 @@ int main(){
                     getline(cin,id);
                 }while(!esint(id));
                 datosEmpleados datos=arbolEmpleados->buscar(stoi(id));
-                if(datos.nombre.empty()){
-                    cout << "Ingreso un ID incorrecto";
+                if(datos.nombre.empty()&&!datos.estado){
+                    cout << "Ingreso un ID incorrecto o el empleado no esta disponible.";
                 }else{
                     if(datos.departamento=="Administracion"){
                         administracion(datos.puesto);
@@ -120,15 +127,19 @@ int main(){
                     getline(cin,id);
                 }while(!esint(id));
                 arbolEmpleados->cambiar(stoi(id));
-            }else{
+            }else if(opcionEmpleados == "4"){
+                arbolEmpleados->imprimir();
+            } else {
                 cout << "Opción Incorrecta" << endl;
             }
 
         } else if(opcion == "2"){
             cout << "---- MENÚ CLIENTES ----" << endl;
             cout << "1. Agregar cliente" << endl
-                 << "2. Hacer un pedido como cliente" << endl;
-            cout << "Ingresar una opcion: ";
+            << "2. Hacer un pedido como cliente" << endl
+            << "3. Añadir saldo a cliente."<<endl
+            << "4. Ver clientes."<<endl
+            << "Ingresar una opcion: ";
             getline(cin,opcionClientes);
             cout << "---------------------------------" << endl;
             if(opcionClientes == "1"){
@@ -137,18 +148,35 @@ int main(){
                 guardarIDs(idEmpleados,idClientes,idPedidos,idVentas,idInventario);
                 thread t2(agregarCliente);
                 t2.join();
-            } else if(opcionClientes == "2" && cantidadInventario>0){
+            } else if (opcionClientes == "2" && arbolInvetario->root){
                 do{
                     cout << "Ingresar ID: ";
                     getline(cin,id);
                 }while(!esint(id));
                 datosClientes* datos=arbolClientes->buscar(stoi(id));
-                if(datos->nombre.empty()){
+                if(datos==nullptr){
                     cout << "Ingreso un ID incorrecto";
                 }else{
-                    thread t4(agregarPedido,datos->nombre,datos->id);
+                    thread t4(agregarPedido,datos->nombre,datos->id,datos->saldo);
                     t4.join();
                 }
+            } else if (opcionClientes == "3"){
+                do{
+                    cout << "Ingresar ID: ";
+                    getline(cin,id);
+                }while(!esint(id));
+                datosClientes* datos=arbolClientes->buscar(stoi(id));
+                if(datos==nullptr){
+                    cout << "Ingreso un ID incorrecto";
+                }else{
+                    do{
+                        cout << "Ingresar saldo: ";
+                        getline(cin,saldo);
+                    }while(!esdouble(saldo));
+                    datos->saldo=stod(saldo);
+                }
+            } else if (opcionClientes == "4"){
+                arbolClientes->imprimir();
             } else {
                 cout << "Opción Incorrecta" << endl;
             }
@@ -164,11 +192,11 @@ int main(){
         cout << endl;
     }
 
-    //arbolEmpleados->guardarEnArchivoBinario();
-    //arbolClientes->guardarEnArchivoBinario();
-    //arbolVentas->guardarEnArchivoBinario();
-    //arbolPedidos->guardarEnArchivoBinario();
-    //arbolInvetario->guardarEnArchivoBinario();
+    arbolEmpleados->guardarEnArchivoBinario();
+    arbolClientes->guardarEnArchivoBinario();
+    arbolVentas->guardarEnArchivoBinario();
+    arbolPedidos->guardarEnArchivoBinario();
+    arbolInvetario->guardarEnArchivoBinario();
 
     return 0;
 }

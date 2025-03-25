@@ -31,7 +31,7 @@ datosPedidos* ArbolPedidos::buscar(int clave){
 
 datosPedidos* ArbolPedidos::search(int clave,Pedidos nodo){
     datosPedidos *datos=nodo.buscar(clave);
-    if(!datos->cliente.empty()){
+    if(datos!=nullptr){
         return datos;
     }
 
@@ -42,7 +42,7 @@ datosPedidos* ArbolPedidos::search(int clave,Pedidos nodo){
             }
         }
     }
-    return datos;
+    return nullptr;
 }
 
 void ArbolPedidos::insertar(int clave, string cliente, string fecha, bool estado){

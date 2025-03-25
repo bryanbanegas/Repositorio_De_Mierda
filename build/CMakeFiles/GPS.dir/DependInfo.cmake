@@ -21,7 +21,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolInventario.cpp" "CMakeFiles/GPS.dir/estructuras/arbolInventario.cpp.o" "gcc" "CMakeFiles/GPS.dir/estructuras/arbolInventario.cpp.o.d"
   "/home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolPedidos.cpp" "CMakeFiles/GPS.dir/estructuras/arbolPedidos.cpp.o" "gcc" "CMakeFiles/GPS.dir/estructuras/arbolPedidos.cpp.o.d"
   "/home/bryan/Documents/VSCode/Gestion_Empresarial/estructuras/arbolVentas.cpp" "CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o" "gcc" "CMakeFiles/GPS.dir/estructuras/arbolVentas.cpp.o.d"
-  "/home/bryan/Documents/VSCode/Gestion_Empresarial/prueba.cpp" "CMakeFiles/GPS.dir/prueba.cpp.o" "gcc" "CMakeFiles/GPS.dir/prueba.cpp.o.d"
+  "/home/bryan/Documents/VSCode/Gestion_Empresarial/main.cpp" "CMakeFiles/GPS.dir/main.cpp.o" "gcc" "CMakeFiles/GPS.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
